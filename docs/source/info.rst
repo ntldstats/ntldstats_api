@@ -84,6 +84,8 @@ Response
         "msg":"Command completed successfully",
     }
 
+Sample Link: http://api.ntldstats.net/i/tlds
+
 Get list of launch events
 *************************
 
@@ -264,5 +266,7 @@ Response
         "code": 1000,
         "msg": "Command completed successfully"
     }
+
+Sample Link: http://api.ntldstats.net/i/launch
 
 .. _nTLDStats: http://ntldstats.com
