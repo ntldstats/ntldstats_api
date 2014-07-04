@@ -1,5 +1,7 @@
-Info
-####
+Public Informations
+###################
+
+All calls to **/i/** endpoint work without API token authentication.
 
 Get detailed list of all domains
 ********************************
