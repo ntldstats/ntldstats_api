@@ -3,8 +3,8 @@ Public Informations
 
 All calls to **/i/** endpoint work without API token authentication.
 
-Get detailed list of all domains
-********************************
+Get detailed list of all tlds
+*****************************
 
 Command
 =======
@@ -87,6 +87,86 @@ Response
     }
 
 Sample Link: http://api.ntldstats.net/i/tlds
+
+Get detailed list of all new gtld applications
+**********************************************
+
+Command
+=======
+
+**GET /i/applications**
+
+Arguments
+    -- None
+
+Response
+    :applications: list of Application objects
+
+Application Object
+    :application_id: number of application
+    :priority_number: priority number of application
+    :label: name of label, idn encoded
+    :label_utf8: name of label in native language
+    :status: current application status as string
+    :applicant: Applicant object
+    :evaluation: Evaluation object
+    :cpe_status: current CPE status (optional)
+
+Applicant Object
+    :name: name of Applicant
+    :country_code: Country code indicated by applicant as principal place of business
+    :primary_contact: Primary Contact object
+    :suport_result: Result of support evaluation (optional)
+
+Primary Contact Object
+    :name: name of primary applicant contact
+    :email: email of primary applicant contact
+
+Evaluation Object
+    :result: result of evaluation as string
+    :pdf: link to official result PDF
+
+Example
+=======
+
+Request
+
+::
+
+    GET /i/applications
+
+Response
+
+::
+
+    {
+        "resData": {
+            "applications": [{
+                "application_id": "1-1114-79381",
+                "priority_number": "1016",
+                "status": "delegated",
+                "label": "schmidt",
+                "label_utf8": "schmidt",
+                "applicant": {
+                    "name": "SALM S.A.S.",
+                    "country_code": "FR",
+                    "primary_contact": {
+                        "name": "Jacques Haas",
+                        "email": "jacques.haas@salm.fr"
+                    }
+                },
+                "evaluation": {
+                    "result": "Pass IE",
+                    "pdf": "http:\/\/newgtlds.icann.org\/en\/program-status\/application-results\/ie-1-1114-79381-en.pdf"
+                }
+            }],
+        },
+        "code": 1000,
+        "msg":"Command completed successfully",
+    }
+
+Sample Link: http://api.ntldstats.net/i/applications
+
 
 Get list of launch events
 *************************
