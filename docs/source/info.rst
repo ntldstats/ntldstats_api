@@ -21,9 +21,15 @@ TLD Object
     :zone: name of tld, idn encoded
     :zone_utf8: name of tld in native language
     :delegated: true if tld is already delegated
+    :applications: list of Small Application object
     :registry: Registry object (optional)
     :backend: Backend object (optional)
     :whois: Whois object (optional)
+
+Small Application Object
+    :id: id of application
+    :applicant: name of applicant
+    :status: current application status
 
 Registry Object
     :id: id of Registry
@@ -103,7 +109,7 @@ Response
     :applications: list of Application objects
 
 Application Object
-    :application_id: number of application
+    :id: id of application
     :priority_number: priority number of application
     :label: name of label, idn encoded
     :label_utf8: name of label in native language
