@@ -20,6 +20,7 @@ Response
 TLD Object
     :zone: name of tld, idn encoded
     :zone_utf8: name of tld in native language
+    :delegated: true if tld is already delegated
     :registry: Registry object (optional)
     :backend: Backend object (optional)
     :whois: Whois object (optional)
@@ -60,6 +61,7 @@ Response
             "tlds": [{
                 "zone": "xn--ngbc5azd",
                 "zone_utf8": "\u0634\u0628\u0643\u0629",
+                "delegated": true,
                 "registry": {
                     "name": "International Domain Registry Pty. Ltd.",
                     "id": "International-Domain-Registry-Pty-Ltd",
