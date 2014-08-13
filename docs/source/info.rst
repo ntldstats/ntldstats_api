@@ -68,6 +68,11 @@ Response
                 "zone": "xn--ngbc5azd",
                 "zone_utf8": "\u0634\u0628\u0643\u0629",
                 "delegated": true,
+                "applications": [{
+                    "id": "1-1926-49360",
+                    "applicant": "International Domain Registry Pty. Ltd.",
+                    "status": "delegated"
+                }],
                 "registry": {
                     "name": "International Domain Registry Pty. Ltd.",
                     "id": "International-Domain-Registry-Pty-Ltd",
@@ -148,7 +153,7 @@ Response
     {
         "resData": {
             "applications": [{
-                "application_id": "1-1114-79381",
+                "id": "1-1114-79381",
                 "priority_number": "1016",
                 "status": "delegated",
                 "label": "schmidt",
