@@ -3,6 +3,13 @@ Public Informations
 
 All calls to **/i/** endpoint work without API token authentication.
 
+API response format can be set to CSV as append /csv to the URL:
+
+Sample Links:
+  - http://api.ntldstats.net/i/tlds/csv
+  - http://api.ntldstats.net/i/applications/csv
+
+
 Get detailed list of all tlds
 *****************************
 
