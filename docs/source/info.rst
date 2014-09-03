@@ -374,7 +374,10 @@ List current CZDS requests
 Command
 =======
 
-**GET|POST /i/czds**
+**GET /i/czds**
+
+Arguments
+    -- None
 
 Response
     :total: Total Object
