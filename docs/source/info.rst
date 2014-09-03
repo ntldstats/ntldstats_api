@@ -10,8 +10,8 @@ Sample Links:
   - http://api.ntldstats.net/i/applications/csv
 
 
-Detailed list of all tlds
-*************************
+List tlds
+*********
 
 Command
 =======
@@ -106,8 +106,8 @@ Response
 
 Sample Link: http://api.ntldstats.net/i/tlds
 
-Detailed list of all new gtld applications
-******************************************
+List new gtld applications
+**************************
 
 Command
 =======
