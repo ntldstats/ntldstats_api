@@ -10,8 +10,8 @@ Sample Links:
   - http://api.ntldstats.net/i/applications/csv
 
 
-Get detailed list of all tlds
-*****************************
+Detailed list of all tlds
+*************************
 
 Command
 =======
@@ -106,8 +106,8 @@ Response
 
 Sample Link: http://api.ntldstats.net/i/tlds
 
-Get detailed list of all new gtld applications
-**********************************************
+Detailed list of all new gtld applications
+******************************************
 
 Command
 =======
@@ -185,9 +185,8 @@ Response
 
 Sample Link: http://api.ntldstats.net/i/applications
 
-
-Get list of launch events
-*************************
+List launch events
+******************
 
 Command
 =======
@@ -368,5 +367,104 @@ Response
     }
 
 Sample Link: http://api.ntldstats.net/i/launch
+
+List current CZDS requests
+**************************
+
+Command
+=======
+
+**GET|POST /i/czds**
+
+Response
+    :total: Total Object
+    :requests: list of Request Objects
+
+Total Object
+    :requests: total count of requests send
+    :approved: total count of approved requests
+    :pending: total count of current pending requests
+    :expired: total count of expired requests
+    :revoked: total count of revoked requests
+    :denied: total count of denied requests
+    :open: count of currently unrequested zones
+    :zones: total count of zones available on CZDS
+    
+Request Object
+    :id: CZDS Request ID
+    :status: current status
+    :zone: name of tld, idn encoded
+    :zone_utf8: name of tld in native language
+    :approve_date: DateTime when request approved
+    :expire_date: DateTime when request expired
+    :request_date: DateTime when request created
+    :last_zone_update: DateTime when zone got last update
+    :zones_count: Count of unique domains in last zone update
+    :registry: Registry object
+    :backend: Backend object
+
+Registry Object
+    :id: id of Registry
+    :name: name of Registry
+    :info_url: public nTLDStats_ URL to get more informations about Registry
+
+Backend Object
+    :id: id of Backend
+    :name: name of Backend
+    :info_url: public nTLDStats_ URL to get more informations about Backend
+
+Example
+=======
+
+Request
+
+::
+
+    GET /i/czds
+
+Response
+
+::
+
+    {
+        "resData": {
+            "total": {
+                "requests": 633,
+                "approved": 337,
+                "pending": 29,
+                "expired": 258,
+                "revoked": 1,
+                "denied": 8,
+                "open": 0,
+                "zones": 367
+            },
+            "requests": [{
+                "id": 210385,
+                "status": "pending",
+                "zone": "top",
+                "zone_utf8": "top",
+                "approve_date": "0000-00-00 00:00:00",
+                "expire_date": "0000-00-00 00:00:00",
+                "request_date": "2014-08-21 00:00:00",
+                "last_zone_update": "0000-00-00 00:00:00",
+                "zones_count": 0,
+                "registry": {
+                    "name": "Jiangsu Bangning Science & Technology Co.,Ltd.",
+                    "id": "Jiangsu-Bangning-Science-Technology-CoLtd",
+                    "info_url": "http:\/\/ntldstats.com\/registry\/Jiangsu-Bangning-Science-Technology-CoLtd"
+                },
+                "backend": {
+                    "name": "Jiangsu Bangning Science & technology Co.,Ltd.",
+                    "id": "Jiangsu-Bangning-Science-technology-CoLtd",
+                    "info_url": "http:\/\/ntldstats.com\/backend\/Jiangsu-Bangning-Science-technology-CoLtd"
+                }
+            }],
+        },
+        "code": 1000,
+        "msg": "Command completed successfully"
+    }
+
+Sample Link: http://api.ntldstats.net/i/czds
+
 
 .. _nTLDStats: http://ntldstats.com
