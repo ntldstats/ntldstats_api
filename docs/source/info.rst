@@ -1,5 +1,5 @@
-Public Informations
-###################
+Public Information
+##################
 
 All calls to **/i/** endpoint work without API token authentication.
 
@@ -41,13 +41,13 @@ Small Application Object
 Registry Object
     :id: id of Registry
     :name: name of Registry
-    :info_url: public nTLDStats_ URL to get more informations about Registry
+    :info_url: public nTLDStats_ URL to get more information about Registry
     :url: url of Registry
 
 Backend Object
     :id: id of Backend
     :name: name of Backend
-    :info_url: public nTLDStats_ URL to get more informations about Backend
+    :info_url: public nTLDStats_ URL to get more information about Backend
     :url: url of Backend
 
 Whois Object
@@ -210,7 +210,7 @@ Event Object
     :start: DateTime of event start
     :end: DateTime of event end
     :name: name of event, only given if stage is **OT**,
-    :description: additional informations as text
+    :description: additional information as text
     :flags: list of Flag objects
 
 Stage Object
@@ -220,7 +220,7 @@ Stage Object
 Flag Object
     :id: ID of Flag
     :name: Name of Flag
-    :description: additional informations as text
+    :description: additional information as text
     :short_name: short cut name of Flag
 
 Example
@@ -409,12 +409,12 @@ Request Object
 Registry Object
     :id: id of Registry
     :name: name of Registry
-    :info_url: public nTLDStats_ URL to get more informations about Registry
+    :info_url: public nTLDStats_ URL to get more information about Registry
 
 Backend Object
     :id: id of Backend
     :name: name of Backend
-    :info_url: public nTLDStats_ URL to get more informations about Backend
+    :info_url: public nTLDStats_ URL to get more information about Backend
 
 Example
 =======
