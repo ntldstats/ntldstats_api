@@ -32,6 +32,7 @@ TLD Object
     :registry: Registry object (optional)
     :backend: Backend object (optional)
     :whois: Whois object (optional)
+    :trademark_claims: Trademark Claims object (optional)
 
 Small Application Object
     :id: id of application
@@ -55,6 +56,10 @@ Whois Object
     :charset: default charset of whois server
     :ipv6: true if whois server supports IPv6 connections
     :options: additional options to prefix whois request
+
+Trademark Claims Object
+    :open: start date of trademark claim period
+    :close: end date of trademark claim period
 
 Example
 =======
