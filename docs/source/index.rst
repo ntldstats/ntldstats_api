@@ -33,6 +33,7 @@ Resources
     login
     domains
     jobs
+    stats
     info
 
 .. _nTLDStats: http://ntldstats.com
