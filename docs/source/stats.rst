@@ -522,8 +522,8 @@ Response
                 }
             }
         }
-        code: 1000,
-        msg:Command completed successfully,
+        "code": 1000,
+        "msg":Command completed successfully,
     }
 
 Sample Link: http://api.ntldstats.net/stats/parking/registrar
