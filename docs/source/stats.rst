@@ -112,8 +112,7 @@ Registrar Object
     :name: name of Registrar
     :url: homepage of Registrar
     :registrar_group: Registrar Group object
-    :domain_count: total registered domains by registrar
-    :tlds: named list of TLD object
+    :domain_count: total registered domains
     
 Registrar Group Object
     :name: name of Registrar Group
@@ -192,8 +191,7 @@ Backend Object
     :id: id of Backend
     :name: name of Backend
     :url: homepage of Backend
-    :domain_count: total registered domains by registrar
-    :tlds: named list of TLD object
+    :domain_count: total registered domains
     
 TLD Object
     :zone: name of tld, idn encoded
@@ -239,6 +237,76 @@ Response
         "msg":"Command completed successfully",
     }
 
-Sample Link: http://api.ntldstats.net/stats/registrars
+Sample Link: http://api.ntldstats.net/stats/backends
+
+Registry Statistics
+*******************
+
+Command
+=======
+
+**GET /stats/registries**
+
+Arguments
+    -- None
+
+Response
+    :registries: named list of Statistic objects
+
+Statistic Object
+    :registry: Registry object
+    :tlds: named list of TLD objects
+
+Registry Object
+    :id: id of Registry
+    :name: name of Registry
+    :url: homepage of Registry
+    :domain_count: total registered domains
+    
+TLD Object
+    :zone: name of tld, idn encoded
+    :zone_utf8: name of tld in native language
+    :current_stage: name of current stage
+    :domain_count: total count of registered domains in this TLD
+    
+Example
+=======
+
+Request
+
+::
+
+    GET /stats/backends
+
+Response
+
+::
+
+    {
+        "resData": {
+            "backends": {
+                Donuts-Inc": {
+                    "backend": {
+                        "id": "Donuts-Inc",
+                        "name": "Donuts Inc.",
+                        "url": "http:\/\/www.donuts.co",
+                        "domain_count": 1047140
+                    },
+                    "tlds": {
+                        "guru": {
+                            "zone": "guru",
+                            "zone_utf8": "guru",
+                            "domain_count": 75568,
+                            "current_stage": "GA"
+                        },
+                    }
+                }
+            }
+        },
+        "code": 1000,
+        "msg":"Command completed successfully",
+    }
+
+Sample Link: http://api.ntldstats.net/stats/registries
 
 .. _nTLDStats: http://ntldstats.com
