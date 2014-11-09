@@ -100,11 +100,15 @@ Arguments
     -- None
 
 Response
-    :registrars: named list of Registrar objects
+    :registrars: named list of Statistic objects
 
+Statistic Object
+    :registrar: Registrar object
+    :tlds: named list of TLD objects
+    
 Registrar Object
     :id: id of Registrar
-    :iana_id: registrar IANA_ id
+    :iana_id: registrar IANA id
     :name: name of Registrar
     :url: homepage of Registrar
     :registrar_group: Registrar Group object
@@ -166,5 +170,75 @@ Response
 
 Sample Link: http://api.ntldstats.net/stats/registrars
 
+Backend Statistics
+******************
+
+Command
+=======
+
+**GET /stats/backends**
+
+Arguments
+    -- None
+
+Response
+    :backends: named list of Statistic objects
+
+Statistic Object
+    :backend: Backend object
+    :tlds: named list of TLD objects
+
+Backend Object
+    :id: id of Backend
+    :name: name of Backend
+    :url: homepage of Backend
+    :domain_count: total registered domains by registrar
+    :tlds: named list of TLD object
+    
+TLD Object
+    :zone: name of tld, idn encoded
+    :zone_utf8: name of tld in native language
+    :current_stage: name of current stage
+    :domain_count: total count of registered domains in this TLD
+    
+Example
+=======
+
+Request
+
+::
+
+    GET /stats/backends
+
+Response
+
+::
+
+    {
+        "resData": {
+            "backends": {
+                Donuts-Inc": {
+                    "backend": {
+                        "id": "Donuts-Inc",
+                        "name": "Donuts Inc.",
+                        "url": "http:\/\/www.donuts.co",
+                        "domain_count": 1047140
+                    },
+                    "tlds": {
+                        "guru": {
+                            "zone": "guru",
+                            "zone_utf8": "guru",
+                            "domain_count": 75568,
+                            "current_stage": "GA"
+                        },
+                    }
+                }
+            }
+        },
+        "code": 1000,
+        "msg":"Command completed successfully",
+    }
+
+Sample Link: http://api.ntldstats.net/stats/registrars
+
 .. _nTLDStats: http://ntldstats.com
-.. _IANA: https://www.iana.org/assignments/registrar-ids/registrar-ids.xhtml
