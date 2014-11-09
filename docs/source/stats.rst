@@ -276,7 +276,7 @@ Request
 
 ::
 
-    GET /stats/backends
+    GET /stats/registries
 
 Response
 
@@ -284,9 +284,9 @@ Response
 
     {
         "resData": {
-            "backends": {
+            "registries": {
                 Donuts-Inc": {
-                    "backend": {
+                    "registry": {
                         "id": "Donuts-Inc",
                         "name": "Donuts Inc.",
                         "url": "http:\/\/www.donuts.co",
@@ -308,5 +308,224 @@ Response
     }
 
 Sample Link: http://api.ntldstats.net/stats/registries
+
+Parking Statistics by TLD
+*************************
+
+Command
+=======
+
+**GET /stats/parking/tld**
+
+Arguments
+    -- None
+
+Response
+    :stats: Global Statistic object
+    :tlds: named list of TLD Statistic objects
+
+Global Statistic Object
+    :total_domains: total count of registered domains
+    :total_tlds: total count of tlds
+    :parking_domains: total count of parking domains
+    :no_ns: total count of domains without nameservers
+    :parking_ns: total count of domains with parking nameservers
+    :no_record: total count of domains without A record
+    :parking_ip: total count of domains with parking IP
+    :private_ip: total count of domains resolving to private IPs
+    :parking_check: total count of domains returning parking websites
+    :http_error: total count of domains with HTTP errors
+    :redirect: total count of domains returning redirect code
+
+TLD Statistic Object
+    :stats: Statistic object
+    :tld: TLD object
+
+Statistic Object
+    :parking_domains: total count of parking domains
+    :no_ns: total count of domains without nameservers
+    :parking_ns: total count of domains with parking nameservers
+    :no_record: total count of domains without A record
+    :parking_ip: total count of domains with parking IP
+    :private_ip: total count of domains resolving to private IPs
+    :parking_check: total count of domains returning parking websites
+    :http_error: total count of domains with HTTP errors
+    :redirect: total count of domains returning redirect code
+
+TLD Object
+    :zone: name of tld, idn encoded
+    :zone_utf8: name of tld in native language
+    :domain_count: total count of registered domains in this TLD
+    
+Example
+=======
+
+Request
+
+::
+
+    GET /stats/parking/tld
+
+Response
+
+::
+
+    {
+        "resData": {
+            "stats": {
+                "total_tlds": 431,
+                "total_domains": 3097027,
+                "parking_domains": 2054579,
+                "no_ns": 11698,
+                "parking_ns": 230587,
+                "no_record": 487353,
+                "parking_ip": 97251,
+                "private_ip": 7198,
+                "parking_check": 1220492,
+                "http_error": 286100,
+                "redirect": 279899
+            },
+            "tlds": {
+                "xyz": {
+                    "stats": {
+                        "parking_domains": 485385,
+                        "no_ns": 3356,
+                        "parking_ns": 6129,
+                        "no_record": 68282,
+                        "parking_ip": 4190,
+                        "private_ip": 3496,
+                        "parking_check": 399932,
+                        "http_error": 104691,
+                        "redirect": 20200
+                    },
+                    "tld": {
+                        zone: xyz,
+                        zone_utf8: xyz,
+                        domain_count: 706699
+                    }
+                }
+            }
+        },
+        "code": 1000,
+        "msg":Command completed successfully,
+    }
+
+Sample Link: http://api.ntldstats.net/stats/parking/tld
+
+Parking Statistics by Registrar
+*******************************
+
+Command
+=======
+
+**GET /stats/parking/registrar**
+
+Arguments
+    -- None
+
+Response
+    :stats: Global Statistic object
+    :tlds: named list of Registrar Statistic objects
+
+Global Statistic Object
+    :total_domains: total count of registered domains
+    :total_tlds: total count of tlds
+    :parking_domains: total count of parking domains
+    :no_ns: total count of domains without nameservers
+    :parking_ns: total count of domains with parking nameservers
+    :no_record: total count of domains without A record
+    :parking_ip: total count of domains with parking IP
+    :private_ip: total count of domains resolving to private IPs
+    :parking_check: total count of domains returning parking websites
+    :http_error: total count of domains with HTTP errors
+    :redirect: total count of domains returning redirect code
+
+Registrar Statistic Object
+    :stats: Statistic object
+    :registrar: Registrar object
+
+Statistic Object
+    :parking_domains: total count of parking domains
+    :no_ns: total count of domains without nameservers
+    :parking_ns: total count of domains with parking nameservers
+    :no_record: total count of domains without A record
+    :parking_ip: total count of domains with parking IP
+    :private_ip: total count of domains resolving to private IPs
+    :parking_check: total count of domains returning parking websites
+    :http_error: total count of domains with HTTP errors
+    :redirect: total count of domains returning redirect code
+
+Registrar Object
+    :id: id of Registrar
+    :iana_id: registrar IANA id
+    :name: name of Registrar
+    :url: homepage of Registrar
+    :registrar_group: Registrar Group object
+    :domain_count: total registered domains
+    
+Registrar Group Object
+    :name: name of Registrar Group
+    :url: homepage of Registrar Group
+
+Example
+=======
+
+Request
+
+::
+
+    GET /stats/parking/registrare
+
+Response
+
+::
+
+    {
+        "resData": {
+            "stats": {
+                "total_tlds": 431,
+                "total_domains": 3097027,
+                "parking_domains": 2054579,
+                "no_ns": 11698,
+                "parking_ns": 230587,
+                "no_record": 487353,
+                "parking_ip": 97251,
+                "private_ip": 7198,
+                "parking_check": 1220492,
+                "http_error": 286100,
+                "redirect": 279899
+            },
+            "registrars": {
+                "2-Network-Solutions-LLC": {
+                    "stats": {
+                        "parking_domains": 401623,
+                        "no_ns": 37,
+                        "parking_ns": 143,
+                        "no_record": 15926,
+                        "parking_ip": 6,
+                        "private_ip": 28,
+                        "parking_check": 385483,
+                        "http_error": 7507,
+                        "redirect": 2862
+                    },
+                    "registrar": {
+                        "domain_count": 413441,
+                        "id": "2-Network-Solutions-LLC",
+                        "iana_id": "2",
+                        "name": "Network Solutions, LLC",
+                        "info_url": "http:\/\/ntldstats.com\/registrar\/2-Network-Solutions-LLC",
+                        "registrar_group": {
+                            "name": "Web.com",
+                            "url": "https:\/\/www.web.com\/"
+                        }
+                    }
+                }
+            }
+        }
+        code: 1000,
+        msg:Command completed successfully,
+    }
+
+Sample Link: http://api.ntldstats.net/stats/parking/registrar
 
 .. _nTLDStats: http://ntldstats.com
