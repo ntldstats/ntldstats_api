@@ -304,7 +304,7 @@ Response
             }
         },
         "code": 1000,
-        "msg":"Command completed successfully",
+        "msg": "Command completed successfully",
     }
 
 Sample Link: http://api.ntldstats.net/stats/registries
@@ -399,15 +399,15 @@ Response
                         "redirect": 20200
                     },
                     "tld": {
-                        zone: xyz,
-                        zone_utf8: xyz,
-                        domain_count: 706699
+                        "zone": "xyz",
+                        "zone_utf8": "xyz",
+                        "domain_count": 706699
                     }
                 }
             }
         },
         "code": 1000,
-        "msg": Command completed successfully,
+        "msg": "Command completed successfully",
     }
 
 Sample Link: http://api.ntldstats.net/stats/parking/tld
@@ -523,7 +523,7 @@ Response
             }
         }
         "code": 1000,
-        "msg":Command completed successfully,
+        "msg": "Command completed successfully",
     }
 
 Sample Link: http://api.ntldstats.net/stats/parking/registrar
