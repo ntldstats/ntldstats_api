@@ -474,7 +474,7 @@ Request
 
 ::
 
-    GET /stats/parking/registrare
+    GET /stats/parking/registrar
 
 Response
 
