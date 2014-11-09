@@ -215,7 +215,7 @@ Response
     {
         "resData": {
             "backends": {
-                Donuts-Inc": {
+                "Donuts-Inc": {
                     "backend": {
                         "id": "Donuts-Inc",
                         "name": "Donuts Inc.",
@@ -285,7 +285,7 @@ Response
     {
         "resData": {
             "registries": {
-                Donuts-Inc": {
+                "Donuts-Inc": {
                     "registry": {
                         "id": "Donuts-Inc",
                         "name": "Donuts Inc.",
@@ -407,7 +407,7 @@ Response
             }
         },
         "code": 1000,
-        "msg":Command completed successfully,
+        "msg": Command completed successfully,
     }
 
 Sample Link: http://api.ntldstats.net/stats/parking/tld
