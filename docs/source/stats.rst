@@ -1,7 +1,7 @@
 Statistic Information
 #####################
 
-All calls to **/stats/** endpoint work only with payed API account.
+All calls to **/stats/** endpoint only work with a paid API account.
 
 TLD Statistics
 **************
