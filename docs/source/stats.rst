@@ -847,4 +847,261 @@ Response
 
 Sample Link: https://beta.api.ntldstats.net/stats/parking/registrar
 
+Parking Statistics by TLD
+*************************
+
+Command
+=======
+
+**GET /stats/parking/tld**
+
+Arguments
+    -- None
+
+Response
+    :stats: Global Statistic object
+    :tlds: list of TLD objects
+
+Global Statistic Object
+    :total_domains: total count of registered domains
+    :total_tlds: total count of tlds
+    :parking_domains: total count of parking domains
+    :no_ns: total count of domains without nameservers
+    :parking_ns: total count of domains with parking nameservers
+    :no_record: total count of domains without A record
+    :parking_ip: total count of domains with parking IP
+    :private_ip: total count of domains resolving to private IPs
+    :parking_check: total count of domains returning parking websites
+    :http_error: total count of domains with HTTP errors
+    :redirect: total count of domains returning redirect code
+
+Statistic Object
+    :parking_domains: total count of parking domains
+    :no_ns: total count of domains without nameservers
+    :parking_ns: total count of domains with parking nameservers
+    :no_record: total count of domains without A record
+    :parking_ip: total count of domains with parking IP
+    :private_ip: total count of domains resolving to private IPs
+    :parking_check: total count of domains returning parking websites
+    :http_error: total count of domains with HTTP errors
+    :redirect: total count of domains returning redirect code
+
+TLD Object
+    :zone: name of tld, idn encoded
+    :zone_utf8: name of tld in native language
+    :domain_count: total count of registered domains in this TLD
+    :stats: Statistic Object
+    
+Example
+=======
+
+Request
+
+::
+
+    GET /stats/parking/tld
+
+Response
+
+::
+
+    {
+        "resData": {
+            "stats": {
+                "total_tlds": 431,
+                "total_domains": 3111803,
+                "parking_domains": 2056544,
+                "no_ns": 11660,
+                "parking_ns": 231350,
+                "no_record": 486538,
+                "parking_ip": 97615,
+                "private_ip": 7198,
+                "parking_check": 1222183,
+                "http_error": 290152,
+                "redirect": 281672
+            },
+            "tlds": [{
+                "zone": "xyz",
+                "zone_utf8": "xyz",
+                "total_domains": 709096,
+                "stats": {
+                    "parking_domains": 485117,
+                    "no_ns": 3356,
+                    "parking_ns": 6015,
+                    "no_record": 68129,
+                    "parking_ip": 4329,
+                    "private_ip": 3496,
+                    "parking_check": 399792,
+                    "http_error": 105986,
+                    "redirect": 20461
+                }
+            }],
+            "code": 1000,
+            "msg":"Command completed successfully",
+        }
+    }
+
+Sample Link: https://beta.api.ntldstats.net/stats/parking/tld
+
+Fraud Statistics
+****************
+
+Command
+=======
+
+**GET /stats/fraud**
+
+Arguments
+    :limit: limit result to X tlds - default 1000
+    :details: if true, result contains items list
+    :no_nameserver: default true, skip entries without nameservers
+    :no_dns_hold: default true, skip entries with dns hold flag
+    :has_dns_record: default true, skip entries without dns records
+    :no_resolving_ns: default true, skip entries with "non-resolver-nameserver"
+
+Response
+    :stats: Global Statistic object
+    :lists: list of Blacklist List objects
+    :tlds: list of TLD Statistic objecs
+    :items: list of Blacklist Entry objects (optional)
+
+Global Statistic Object
+    :total_domains: total count of registered domains
+    :total_tlds: total count of tlds
+    :total_fraud_domains: total count of suspicious domains
+    :total_dnsbl_domains: total count of domains in dnsbl lists
+    :total_dnsbl_lists: total count of dnsbl lists
+    :total_gsb_domains: total count of domains in gsb lists
+    :total_gsb_lists: total count of gsb lists
+
+TLD Statistic Object
+    :count: total count ot suspicious domains
+    :zone: name of tld, idn encoded
+    :zone_utf8: name of tld in native language
+
+Blacklist List Object
+    :id: id of blacklist item
+    :name: name of blacklist
+    :url: url of blacklist
+    :dnshost: blacklist hostname (optional)
+    :total_active_records: total count of suspicious domains  (optional)
+
+Blacklist Entry Object
+    :created: date entry added to database
+    :domain_name: name of domain, idn encoded
+    :domain_name_utf8: name of domain in native language
+    :tld: name of tld, idn encoded
+    :tld_utf8: name of tld in nativ language
+    :country: iso country code owner contact
+    :lists: list of Blacklist List Object
+    :additional_info: additional infos returned by blacklist
+    :additional_link: additional link returned by blacklist
+    :has_nameserver: domain has linked nameservers
+    :has_dns_hold: dns hold flag is set for domain
+    :has_dns_record: domain nameserver answered with valid A record
+
+Example
+=======
+
+Request
+
+::
+
+    GET /stats/fraud
+
+Response
+
+::
+
+    {
+        "resData": {
+            "stats": {
+                "total_domains": 3631218,
+                "total_tlds": 436,
+                "total_fraud_domains": 1696,
+                "total_dnsbl_domains": 2,
+                "total_dnsbl_lists": 29,
+                "total_gsb_domains": 2,
+                "total_gsb_lists": 4
+            },
+            "lists": {
+                "dnsbl": [{
+                    "id": 328,
+                    "name": "abuse.ch ZeuS Tracker Domain",
+                    "url": "https:\/\/zeustracker.abuse.ch\/",
+                    "dnshost": "uribl.zeustracker.abuse.ch",
+                    "total_active_records": 0
+                }],
+                "gsb": [{
+                    "id": 1,
+                    "name": "Google Safe Browsing Phishing",
+                    "url": "https:\/\/developers.google.com\/safe-browsing\/safebrowsing_faq",
+                    "total_active_records": 15
+                }, {
+                    "id": 2,
+                    "name": "Google Safe Browsing Malware",
+                    "url": "https:\/\/developers.google.com\/safe-browsing\/safebrowsing_faq",
+                    "total_active_records": 82
+                }, {
+                    "id": 3,
+                    "name": "Yandex Safe Browsing Phshing",
+                    "url": "http:\/\/api.yandex.com\/safebrowsing\/",
+                    "total_active_records": 0
+                }, {
+                    "id": 4,
+                    "name": "Yandex Safe Browsing Malware",
+                    "url": "http:\/\/api.yandex.com\/safebrowsing\/",
+                    "total_active_records": 12
+                }]
+            },
+            "tlds": [{
+                "count": 806,
+                "zone": "link",
+                "zone_utf8": "link"
+            }],
+            "items": {
+                "dnsbl": [{
+                    "created": "2014-12-27T08:02:33Z",
+                    "additional_info": "",
+                    "domain_name": "kino",
+                    "tld": "menu",
+                    "country": "CA",
+                    "domain_name_utf8": "kino",
+                    "tld_utf8": "menu",
+                    "lists": [{
+                        "name": "Spamhaus DBL Domain Block List",
+                        "url": "http:\/\/www.spamhaus.org\/dbl\/",
+                        "id": 575
+                    }],
+                    "additional_link": "http:\/\/www.spamhaus.org\/query\/dbl?domain=kino.menu",
+                    "has_nameserver": true,
+                    "has_dns_hold": false,
+                    "has_dns_record": true
+                }],
+                "gsb": [{
+                    "created": "2014-12-28T04:21:10Z",
+                    "additional_info": "",
+                    "domain_name": "starradio",
+                    "tld": "london",
+                    "country": "GB",
+                    "domain_name_utf8": "starradio",
+                    "tld_utf8": "london",
+                    "lists": [{
+                        "name": "Google Safe Browsing Malware",
+                        "url": "https:\/\/developers.google.com\/safe-browsing\/safebrowsing_faq",
+                        "id": 2
+                    }],
+                    "additional_link": "https:\/\/safebrowsing.clients.google.com\/safebrowsing\/diagnostic?site=starradio.london",
+                    "has_nameserver": true,
+                    "has_dns_hold": false,
+                    "has_dns_record": true
+                }]
+            }
+        },
+        "code": 1000,
+        "msg": "Command completed successfully"
+    }
+
+Sample Link: https://beta.api.ntldstats.net/stats/fraud
+
 .. _nTLDStats: http://ntldstats.com
