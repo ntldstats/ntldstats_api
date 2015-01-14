@@ -18,7 +18,7 @@ Example
 Response Format
 ***************
 
-Status codes are used properly. If you get a 200 repsonse, you can expect the normal response body as documented. Otherwise the response body will contain a plain text error message.
+Status codes are used properly. If you get a 200 response, you can expect the normal response body as documented. Otherwise the response body will contain a plain text error message.
 
 For example, if you don’t include the Authorization header, you will get a 401 UNAUTHORIZED status code.
 
