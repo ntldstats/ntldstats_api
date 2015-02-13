@@ -952,7 +952,7 @@ Command
 **GET /stats/fraud**
 
 Arguments
-    :limit: limit result to X tlds - default 1000
+    :limit: limit result to X items - default 1000
     :details: if true, result contains items list
     :no_nameserver: default true, skip entries without nameservers
     :no_dns_hold: default true, skip entries with dns hold flag
@@ -982,6 +982,7 @@ TLD Statistic Object
 Blacklist List Object
     :id: id of blacklist item
     :name: name of blacklist
+    :name_short: shorter version of name
     :url: url of blacklist
     :dnshost: blacklist hostname (optional)
     :total_active_records: total count of suspicious domains  (optional)
@@ -999,6 +1000,19 @@ Blacklist Entry Object
     :has_nameserver: domain has linked nameservers
     :has_dns_hold: dns hold flag is set for domain
     :has_dns_record: domain nameserver answered with valid A record
+    :scan: Scan Object
+
+Scan Object
+    :date: date of scan
+    :perm_url: url of scan result
+    :infected: count of positive scan results
+    :total: total count of scanners
+    :results: list of Scan Result Object
+
+Scan Result Object
+    :name: name of product
+    :manufacturer: name of manufacturer
+    :url: url of product/manufacturer
 
 Example
 =======
@@ -1028,6 +1042,7 @@ Response
                 "dnsbl": [{
                     "id": 328,
                     "name": "abuse.ch ZeuS Tracker Domain",
+                    "name_short": "abuse.ch (ZeuS)",
                     "url": "https:\/\/zeustracker.abuse.ch\/",
                     "dnshost": "uribl.zeustracker.abuse.ch",
                     "total_active_records": 0
@@ -1035,23 +1050,9 @@ Response
                 "gsb": [{
                     "id": 1,
                     "name": "Google Safe Browsing Phishing",
+                    "name_short": "Phishing",
                     "url": "https:\/\/developers.google.com\/safe-browsing\/safebrowsing_faq",
                     "total_active_records": 15
-                }, {
-                    "id": 2,
-                    "name": "Google Safe Browsing Malware",
-                    "url": "https:\/\/developers.google.com\/safe-browsing\/safebrowsing_faq",
-                    "total_active_records": 82
-                }, {
-                    "id": 3,
-                    "name": "Yandex Safe Browsing Phshing",
-                    "url": "http:\/\/api.yandex.com\/safebrowsing\/",
-                    "total_active_records": 0
-                }, {
-                    "id": 4,
-                    "name": "Yandex Safe Browsing Malware",
-                    "url": "http:\/\/api.yandex.com\/safebrowsing\/",
-                    "total_active_records": 12
                 }]
             },
             "tlds": [{
@@ -1073,6 +1074,13 @@ Response
                         "url": "http:\/\/www.spamhaus.org\/dbl\/",
                         "id": 575
                     }],
+                    "scan": {
+                        "date": "2015-02-13T13:34:32Z",
+                        "perm_url": "https:\/\/www.virustotal.com\/url\/f67ff04ccb199e86bcf6804df47a931986298fd59bda5baf39bdb7b3bee21b36\/analysis\/1423834472\/",
+                        "infected": "0",
+                        "total": "62",
+                        "results": []
+                    }
                     "additional_link": "http:\/\/www.spamhaus.org\/query\/dbl?domain=kino.menu",
                     "has_nameserver": true,
                     "has_dns_hold": false,
@@ -1091,6 +1099,17 @@ Response
                         "url": "https:\/\/developers.google.com\/safe-browsing\/safebrowsing_faq",
                         "id": 2
                     }],
+                    "scan": {
+                        "date": "2015-02-13T11:31:14Z",
+                        "perm_url": "https:\/\/www.virustotal.com\/url\/c3b1649f5cf4723ce80199e2a1673a63c87df9992a06c66689b8a26e5a9302cb\/analysis\/1423827074\/",
+                        "infected": "1",
+                        "total": "62",
+                        "results": [{
+                            "name": "Google Safebrowsing",
+                            "manufacturer": "Google",
+                            "url": "http:\/\/code.google.com\/apis\/safebrowsing\/"
+                        }]
+                    }
                     "additional_link": "https:\/\/safebrowsing.clients.google.com\/safebrowsing\/diagnostic?site=starradio.london",
                     "has_nameserver": true,
                     "has_dns_hold": false,
