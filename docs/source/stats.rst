@@ -862,6 +862,7 @@ Arguments
     :no_dns_hold: default true, skip entries with dns hold flag
     :has_dns_record: default true, skip entries without dns records
     :no_resolving_ns: default true, skip entries with "non-resolver-nameserver"
+    :tld: limit result for specific TLD
 
 Response
     :stats: Global Statistic object
