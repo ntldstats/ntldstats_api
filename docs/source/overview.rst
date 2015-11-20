@@ -13,8 +13,7 @@ Unfortunately, we don't know yet. We will, though, send a 2 weeks notice prior t
 3. What should I do if I encounter an error / something is not working?
 Please give us as much information as possible related to the error you ran into. Send those informations to mail@ntldstats.com and we will get back to you as soon as possible.
 
-[Request API beta Access](https://ntldstats.com/signup)
-
+Request API beta Access: https://ntldstats.com/signup
 
 Request Format
 **************
@@ -90,3 +89,4 @@ Units
 
 .. _RFC5730: http://tools.ietf.org/html/rfc5730
 .. _RFC3339: http://tools.ietf.org/html/rfc3339
+.. 
