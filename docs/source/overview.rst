@@ -1,6 +1,21 @@
 Overview
 ########
 
+nTLDstats.com API beta
+**********************
+
+1. What is this beta about?
+In this beta we will give interested parties the opportunity to check out our new API. All data displayed on our website will be accessible through it, without limitations like rate limits, etc.
+
+2. How long will the beta be available?
+Unfortunately, we don't know yet. We will, though, send a 2 weeks notice prior to shutdown of the beta API to every participant.
+
+3. What should I do if I encounter an error / something is not working?
+Please give us as much information as possible related to the error you ran into. Send those informations to mail@ntldstats.com and we will get back to you as soon as possible.
+
+[Request API beta Access](https://ntldstats.com/signup)
+
+
 Request Format
 **************
 
