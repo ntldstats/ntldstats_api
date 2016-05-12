@@ -649,7 +649,7 @@ Parking Statistics by TLD
 Command
 =======
 
-**GET /stats/parking/tld**
+**GET /stats/parking/tlds**
 
 Arguments
     -- None
@@ -695,7 +695,7 @@ Request
 
 ::
 
-    GET /stats/parking/tld
+    GET /stats/parking/tlds
 
 Response
 
@@ -737,7 +737,7 @@ Response
         }
     }
 
-Sample Link: https://beta.api.ntldstats.net/stats/parking/tld
+Sample Link: https://beta.api.ntldstats.net/stats/parking/tlds
 
 Parking Statistics by Registrar
 *******************************
@@ -745,7 +745,7 @@ Parking Statistics by Registrar
 Command
 =======
 
-**GET /stats/parking/registrar**
+**GET /stats/parking/registrars**
 
 Arguments
     -- None
@@ -798,7 +798,7 @@ Request
 
 ::
 
-    GET /stats/parking/registrar
+    GET /stats/parking/registrars
 
 Response
 
@@ -845,7 +845,7 @@ Response
         }
     }
 
-Sample Link: https://beta.api.ntldstats.net/stats/parking/registrar
+Sample Link: https://beta.api.ntldstats.net/stats/parking/registrars
 
 Fraud Statistics
 ****************
